@@ -38,7 +38,7 @@
                             <td>{{ $user->created_at->format('d M Y') }}</td>
                             <td>
                                 <a href="{{ route('user.edit', $user) }}" class="btn btn-sm btn-warning">
-                                    <i class="bx bx-edit-alt"></i>
+                                    <i class="bx bx-edit-alt">Edit</i>
                                 </a>
                                 @if ($user->id !== auth()->id())
                                     <form action="{{ route('user.destroy', $user) }}" method="POST"
@@ -46,7 +46,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="button" class="btn btn-sm btn-danger btn-delete">
-                                            <i class="bx bx-trash"></i>
+                                            <i class="bx bx-trash">Delete</i>
                                         </button>
                                     </form>
                                 @endif
