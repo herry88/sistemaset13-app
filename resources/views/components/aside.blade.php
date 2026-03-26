@@ -55,8 +55,8 @@
             <span class="menu-header-text">Transaksi</span>
         </li>
         @can('manage-mutasi-aset')
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link">
+        <li class="menu-item {{ request()->is('mutasi_aset*') ? 'active' : '' }}">
+            <a href="{{ route('mutasi_aset.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-refresh"></i>
                 <div data-i18n="Mutasi Aset">Mutasi Aset</div>
             </a>
@@ -68,7 +68,7 @@
             <span class="menu-header-text">Laporan</span>
         </li>
         <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link">
+            <a href="{{ route('laporan.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Laporan">Laporan</div>
             </a>

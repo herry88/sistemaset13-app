@@ -48,6 +48,15 @@ class AsetController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $aset = Aset::with(['kategori', 'lokasi'])->findOrFail($id);
+        return view('pages.aset.show', compact('aset'));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)

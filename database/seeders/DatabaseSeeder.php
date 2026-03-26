@@ -13,8 +13,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(RolePermissionSeeder::class);
+        $this->call(KategoriAsetSeeder::class);
+        $this->call(LokasiSeeder::class);
+        $this->call(AsetSeeder::class);
 
-        // Create default admin user
+        // Create default admin user (before MutasiAsetSeeder)
         $admin = User::create([
             'name' => 'Administrator',
             'email' => 'admin@sistemaset.com',
@@ -37,5 +40,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
         $viewer->assignRole('viewer');
+
+        $this->call(MutasiAsetSeeder::class);
     }
 }

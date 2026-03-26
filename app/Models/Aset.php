@@ -18,6 +18,9 @@ class Aset extends Model
         'lokasi_id',
         'kondisi',
         'jumlah',
+        'tanggal_perolehan',
+        'harga_perolehan',
+        'keterangan',
     ];
 
     public function kategori()
