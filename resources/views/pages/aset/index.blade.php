@@ -46,16 +46,16 @@
                             <td>{{ $item->jumlah }}</td>
                             <td class="text-center">
                                 <a href="{{ route('aset.show', $item->id) }}" class="btn btn-sm btn-info">
-                                    <i class="bx bx-show"></i>
+                                    <i class="bx bx-show">Detail</i>
                                 </a>
                                 <a href="{{ route('aset.edit', $item->id) }}" class="btn btn-sm btn-warning">
-                                    <i class="bx bx-edit-alt"></i>
+                                    <i class="bx bx-edit-alt">Edit</i>
                                 </a>
                                 <form action="{{ route('aset.destroy', $item->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger btn-delete">
-                                        <i class="bx bx-trash"></i>
+                                        <i class="bx bx-trash">Delete</i>
                                     </button>
                                 </form>
                             </td>
