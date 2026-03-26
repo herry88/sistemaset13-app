@@ -44,7 +44,7 @@ class KategoriAsetController extends Controller
      */
     public function show(KategoriAset $kategoriAset)
     {
-        //
+        return view('pages.kategori-aset.show', compact('kategoriAset'));
     }
 
     /**

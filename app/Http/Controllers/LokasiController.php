@@ -45,6 +45,8 @@ class LokasiController extends Controller
     public function show(Lokasi $lokasi)
     {
         //
+        $lokasi->load('asets');
+        return view('pages.lokasi.show', compact('lokasi'));
     }
 
     /**
