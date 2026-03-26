@@ -14,7 +14,7 @@ class AsetController extends Controller
      */
     public function index(): JsonResponse
     {
-        $aset = Aset::with(['kategoriAset', 'lokasi'])->get();
+        $aset = Aset::with(['kategori', 'lokasi'])->get();
         return response()->json([
             'success' => true,
             'data' => $aset,
@@ -27,13 +27,14 @@ class AsetController extends Controller
     public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
-            'kode_aset' => 'required|string|max:255|unique:asets',
+            'kode_aset' => 'required|string|max:255|unique:aset',
             'nama_aset' => 'required|string|max:255',
-            'kategori_aset_id' => 'required|exists:kategori_asets,id',
-            'lokasi_id' => 'required|exists:lokasis,id',
-            'tanggal_perolehan' => 'required|date',
-            'nilai_perolehan' => 'required|numeric',
+            'kategori_id' => 'required|exists:kategori_aset,id',
+            'lokasi_id' => 'required|exists:lokasi,id',
             'kondisi' => 'required|in:baik,rusak,hilang',
+            'jumlah' => 'required|integer',
+            'tanggal_perolehan' => 'nullable|date',
+            'harga_perolehan' => 'nullable|numeric',
             'keterangan' => 'nullable|string',
         ]);
 
@@ -51,7 +52,7 @@ class AsetController extends Controller
      */
     public function show(Aset $aset): JsonResponse
     {
-        $aset->load(['kategoriAset', 'lokasi', 'mutasiAsets']);
+        $aset->load(['kategori', 'lokasi', 'mutasiAsets']);
         return response()->json([
             'success' => true,
             'data' => $aset,
@@ -64,13 +65,14 @@ class AsetController extends Controller
     public function update(Request $request, Aset $aset): JsonResponse
     {
         $validated = $request->validate([
-            'kode_aset' => 'required|string|max:255|unique:asets,kode_aset,' . $aset->id,
+            'kode_aset' => 'required|string|max:255|unique:aset,kode_aset,' . $aset->id,
             'nama_aset' => 'required|string|max:255',
-            'kategori_aset_id' => 'required|exists:kategori_asets,id',
-            'lokasi_id' => 'required|exists:lokasis,id',
-            'tanggal_perolehan' => 'required|date',
-            'nilai_perolehan' => 'required|numeric',
+            'kategori_id' => 'required|exists:kategori_aset,id',
+            'lokasi_id' => 'required|exists:lokasi,id',
             'kondisi' => 'required|in:baik,rusak,hilang',
+            'jumlah' => 'required|integer',
+            'tanggal_perolehan' => 'nullable|date',
+            'harga_perolehan' => 'nullable|numeric',
             'keterangan' => 'nullable|string',
         ]);
 
