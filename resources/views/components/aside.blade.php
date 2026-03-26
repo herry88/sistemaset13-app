@@ -43,8 +43,8 @@
         </li>
         @endcan
         @can('manage-aset')
-        <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link">
+        <li class="menu-item {{ request()->is('aset*') ? 'active' : '' }}">
+            <a href="{{ route('aset.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-package"></i>
                 <div data-i18n="Aset">Aset</div>
             </a>

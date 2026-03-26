@@ -40,7 +40,7 @@
                 <div class="d-flex align-items-start justify-content-between">
                     <div>
                         <div class="dash-stat-label">Total Aset</div>
-                        <div class="dash-stat-number">0</div>
+                        <div class="dash-stat-number">{{ $totalAset }}</div>
                     </div>
                     <div class="dash-stat-icon icon-primary">
                         <i class="bx bx-package"></i>
@@ -182,12 +182,12 @@
                 <div class="dash-glass-body">
                     <div class="row g-3">
                         <div class="col-md-3 col-6">
-                            <a href="{{ route('kategori-aset.create') }}" class="dash-action-card">
+                            <a href="{{ route('aset.create') }}" class="dash-action-card">
                                 <div class="dash-action-icon act-primary">
                                     <i class="bx bx-plus-circle"></i>
                                 </div>
-                                <div class="dash-action-title">Tambah Kategori</div>
-                                <p class="dash-action-desc">Kategori baru</p>
+                                <div class="dash-action-title">Tambah Aset</div>
+                                <p class="dash-action-desc">Aset baru</p>
                             </a>
                         </div>
                         <div class="col-md-3 col-6">
@@ -311,8 +311,7 @@
         @if ($totalKategori > 0)
             (function() {
                 const labels = @json($kategoriList);
-                // Generate balanced values for display since we don't have asset counts yet
-                const series = labels.map(() => 1);
+                const series = @json($asetCounts);
                 const colors = ['#696cff', '#06d6a0', '#f59e0b', '#f43f5e', '#8b5cf6', '#0ea5e9', '#ec4899', '#10b981'];
 
                 new ApexCharts(document.querySelector('#kategoriChart'), {

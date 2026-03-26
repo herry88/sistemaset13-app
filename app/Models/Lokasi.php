@@ -16,4 +16,9 @@ class Lokasi extends Model
         'nama_lokasi',
         'keterangan',
     ];
+
+    public function asets()
+    {
+        return $this->hasMany(Aset::class, 'lokasi_id');
+    }
 }

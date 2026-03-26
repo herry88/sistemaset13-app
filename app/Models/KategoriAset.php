@@ -16,4 +16,9 @@ class KategoriAset extends Model
         'nama_kategori',
         'keterangan',
     ];
+
+    public function asets()
+    {
+        return $this->hasMany(Aset::class, 'kategori_id');
+    }
 }

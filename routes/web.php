@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriAsetController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AsetController;
 
 // Guest routes
 Route::middleware('guest')->group(function () {
@@ -22,6 +23,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('kategori-aset', KategoriAsetController::class);
     Route::resource('lokasi', LokasiController::class);
+    Route::resource('aset', AsetController::class);
 
     // Admin only
     Route::middleware('role:admin')->group(function () {
