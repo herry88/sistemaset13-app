@@ -28,16 +28,16 @@
                             <td>{{ $item->keterangan ?? '-' }}</td>
                             <td>
                                 <a href="{{ route('lokasi.show', $item->id) }}" class="btn btn-sm btn-info">
-                                    <i class="bx bx-show"></i>
+                                    <i class="bx bx-show">Detail</i>
                                 </a>
                                 <a href="{{ route('lokasi.edit', $item->id) }}" class="btn btn-sm btn-warning">
-                                    <i class="bx bx-edit-alt"></i>
+                                    <i class="bx bx-edit-alt">Edit</i>
                                 </a>
                                 <form action="{{ route('lokasi.destroy', $item->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger btn-delete">
-                                        <i class="bx bx-trash"></i>
+                                        <i class="bx bx-trash">Delete</i>
                                     </button>
                                 </form>
                             </td>
